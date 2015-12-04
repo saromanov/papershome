@@ -1,0 +1,11 @@
+{% if paper_list %}
+    <h2> List of papers </h2>
+    <ul>
+    {% for paper in paper_list %}
+        <li><a href="/papers/{{ paper.ids }}/">{{ paper.title }}</a></li>
+        {{ paper.description }}
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Paper list is empty. You can add new paper</p>
+{% endif %}
