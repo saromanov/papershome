@@ -30,5 +30,9 @@ class IndexView(TagMixin, ListView):
         return Paper.objects.order_by('-pubdate')[:5]
 
 
-def paper_page(request, paper_id):
-    return HttpResponse("Page for the paper the id {0}".format(paper_id))
+class PaperView(CreateView):
+    model = Paper
+    template_name = 'paper.html'
+
+#def paper_page(request, paper_id):
+#    return HttpResponse("Page for the paper the id {0}".format(paper_id))

@@ -1,8 +1,21 @@
+{% load bootstrap3 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
 {% if paper_list %}
 <center> <h2> List of papers </h2> </center>
-<a href="/add"> Add new paper </a><br>
-<a href="/register"> Register</a><br>
-<a href="/login"> Login </a><br>
+
+
+<div class="account">
+<a class="btn btn-default" href="/accounts/register" role="button">Register</a>
+<a class="btn btn-default" href="/accounts/login" role="button">Login</a>
+</div>
+
+<div class"paperadd">
+<a class="btn btn-success" href="/add" role="button">Add new paper</a>
+</div>
+
     <ul>
     {% for paper in paper_list %}
         <li><a href="/papers/{{ paper.uuid }}/">{{ paper.title }}</a></li>
