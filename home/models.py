@@ -8,7 +8,7 @@ from taggit.managers import TaggableManager
 
 @python_2_unicode_compatible
 class Paper(models.Model):
-    ids = models.CharField(max_length=100, blank=True, unique=True, default=uuid.uuid4)
+    uuid = models.CharField(max_length=100, blank=True, unique=True, default=uuid.uuid4)
     author = models.CharField(max_length=100, verbose_name = u"author")
     title = models.CharField(max_length=200, verbose_name = u"title")
     description = models.CharField(max_length=5000)
