@@ -1,8 +1,11 @@
 {% if paper_list %}
-    <h2> List of papers </h2>
+<center> <h2> List of papers </h2> </center>
+<a href="/add"> Add new paper </a><br>
+<a href="/register"> Register</a><br>
+<a href="/login"> Login </a><br>
     <ul>
     {% for paper in paper_list %}
-        <li><a href="/papers/{{ paper.ids }}/">{{ paper.title }}</a></li>
+        <li><a href="/papers/{{ paper.uuid }}/">{{ paper.title }}</a></li>
         {{ paper.description }}
     {% endfor %}
     </ul>

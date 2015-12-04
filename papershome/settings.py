@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'xzpw=rrv9fpypy-y&@@-_%348gm^2%ru#iclsh(z^kxujm=zu0'
+SECRET_KEY = NotImplemented
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -116,6 +116,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+REGISTRATION_OPEN = True
+ACCOUNT_ACTIVATION_DAYS = 5
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_URL = '/accounts/login'
+LOGIN_REDIRECT_URL = '/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
