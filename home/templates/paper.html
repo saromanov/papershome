@@ -1,0 +1,11 @@
+{% load bootstrap3 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<h2> {{ paper.title }} </h2>
+
+<strong> Description: </strong><br>
+<p> {{ paper.description }} </p><br>
+<a href={{ paper.link }}> Link </a>
+<h3>Example heading <span class="label label-default">New</span></h3>
