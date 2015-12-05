@@ -2,3 +2,4 @@ django==1.9
 django-taggit==0.17.5
 django-registration==2.0.3
 django-bootstrap3==6.2.2
+django-crispy-forms==1.5.2

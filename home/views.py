@@ -5,14 +5,21 @@ from django.views import generic
 from django.views.generic import UpdateView, CreateView, ListView, View
 
 from .models import Paper
+from .forms import PaperForm, CodeForm
 from taggit.models import Tag
 
 class AddPaperView(CreateView):
     model = Paper
-    template_name = 'add_paper.html'
+    template_name = 'add.html'
+    fields = ['title', 'author', 'description', 'breif_description', 'version', 'category', 'link', 'repo','links']
 
-    def get_success_url(self):
-        return reverse('paper-list')
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, {'form': PaperForm(), 'code_form': CodeForm()})
+
+    def post(self, request, *args, **kwargs):
+        newpaper = Paper(request.POST)
+        print("REQUEST: ", request.POST)
+        #newpaper.save(commit=False)
 
 class TagMixin(object):
     def get_content_data(self, kwargs):
@@ -29,16 +36,13 @@ class IndexView(TagMixin, ListView):
         """Return the last five published questions."""
         return Paper.objects.order_by('-pubdate')[:5]
 
-    def get(self, id):
-        return Paper.objects.get(pk=id)
-
 
 class PaperView(View):
     model = Paper
     template_name = 'paper.html'
 
-    def get(self, request, *args, **kwargs):
-        paper = Paper.objects.get(uuid='93440ee4-84f5-4aaf-b03a-139f1e8c1189')
+    def get(self, request, paper_id, *args, **kwargs):
+        paper = Paper.objects.get(uuid=paper_id)
         return render(request, self.template_name, {'paper': paper})
 
     def post(self, request, *args, **kwargs):
