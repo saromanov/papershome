@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'taggit',
     'bootstrap3',
-    'crispy_forms'
+    'crispy_forms',
+    'redis_metrics',
 ]
 
 MIDDLEWARE_CLASSES = [
