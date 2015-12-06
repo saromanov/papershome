@@ -8,4 +8,12 @@
 <strong> Description: </strong><br>
 <p> {{ paper.description }} </p><br>
 <a href={{ paper.link }}> Link </a>
-<h3>Example heading <span class="label label-default">New</span></h3>
+
+{% if paper.links %}
+<br><strong> Additional links </strong> <br> <br>
+{% for key, value in paper.links.get.items %}
+    <a href= {{ key }}> {{ key }} </a>
+    <p> {{ value }} </p>
+{% endfor %}
+{% endif %}
+
