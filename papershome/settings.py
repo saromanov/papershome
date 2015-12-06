@@ -130,3 +130,16 @@ LOGIN_REDIRECT_URL = '/'
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+REDIS_METRICS = {
+   'HOST': 'localhost',
+   'PORT': 6379,
+   'DB':  0,
+   'PASSWORD': None,
+   'SOCKET_TIMEOUT': None,
+   'SOCKET_CONNECTION_POOL': None,
+   'MIN_GRANULARITY': 'daily',
+   'MAX_GRANULARITY': 'yearly',
+   'MONDAY_FIRST_DAY_OF_WEEK': True,
+}
+
