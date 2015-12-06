@@ -3,16 +3,38 @@
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 
-<h2> {{ paper.title }} </h2>
+<div class="page-header">
+    <h1> {{ paper.title }} </h1>
+</div>
 
 <strong> Description: </strong><br>
 <p> {{ paper.description }} </p><br>
-<a href={{ paper.link }}> Link </a>
+
+<strong> Link: </strong> <br>
+<ul class="nav nav-pills">
+        <li role="presentation"><a href= {{ paper.link }} >{{ paper.link }}</a></li>
+</ul>
+
+
+{% if paper.repo %}
+<br><strong> Information about code </strong> <br><br>
+<p> {{ paper.repo.title }} </p>
+<ul class="nav nav-pills">
+        <li role="presentation"><a href= {{ paper.repo.repolink }} >{{ paper.repo.repolink }}</a></li>
+</ul><br>
+<p> Usage: </p>
+<code> {{ paper.repo.usage }} </code><br>
+
+{% endif %}
 
 {% if paper.links %}
-<br><strong> Additional links </strong> <br> <br>
+
+<br><strong> Additional links </strong> <br>
+
 {% for key, value in paper.links.get.items %}
-    <a href= {{ key }}> {{ key }} </a>
+    <ul class="nav nav-pills">
+        <li role="presentation"><a href= {{ key }} >{{ key }}</a></li>
+     </ul>
     <p> {{ value }} </p>
 {% endfor %}
 {% endif %}
