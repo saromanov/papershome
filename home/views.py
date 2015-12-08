@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from django.template import RequestContext
 from django.views import generic
 from django.views.generic import UpdateView, CreateView, ListView, View
+from django.views.generic.edit import FormView
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login
 
 from .models import Paper
 from .forms import PaperForm, CodeForm
@@ -20,6 +23,16 @@ class AddPaperView(CreateView):
         newpaper = Paper(request.POST)
         print("REQUEST: ", request.POST)
         #newpaper.save(commit=False)
+
+class LoginView(FormView):
+    form_class = AuthenticationForm
+    template_name = 'registration/login.html'
+    success_url = '/'
+
+    def form_valid(self, form):
+        self.user = form.get_user()
+        login(self.request, self.user)
+        return super(LoginView, self).form_valid(form)
 
 class TagMixin(object):
     def get_content_data(self, kwargs):
