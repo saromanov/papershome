@@ -3,19 +3,26 @@
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 
-{% if paper_list %}
-<center> <h2> List of papers </h2> </center>
+{% load staticfiles %}
 
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+{% if paper_list %}
+
+<div class="title">
+   <h1> Paperhome </h1>
+</div>
 
 <div class="account">
 <a class="btn btn-default" href="/accounts/register" role="button">Register</a>
 <a class="btn btn-default" href="/accounts/login" role="button">Login</a>
 </div>
 
-<div class"paperadd">
+<div class="paperadd">
 <a class="btn btn-success" href="/add" role="button">Add new paper</a>
 </div>
 
+<div class="paperlist">
+    <center> <h3> List of papers </h3> </center>
     <ul>
     {% for paper in paper_list %}
         <li><a href="/papers/{{ paper.uuid }}/">{{ paper.title }}</a></li>
@@ -25,3 +32,4 @@
 {% else %}
     <p>Paper list is empty. You can add new paper</p>
 {% endif %}
+</div>
