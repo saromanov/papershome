@@ -4,4 +4,4 @@ django-registration==2.0.3
 django-bootstrap3==6.2.2
 django-crispy-forms==1.5.2
 django-redis-metrics==1.0.3
-redis==2.10.5
+redis==4.3.6
