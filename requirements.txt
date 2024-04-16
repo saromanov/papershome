@@ -5,3 +5,4 @@ django-bootstrap3==6.2.2
 django-crispy-forms==1.5.2
 django-redis-metrics==1.0.3
 redis==2.10.5
+sqlparse>=0.5.0 # not directly required, pinned by Snyk to avoid a vulnerability
